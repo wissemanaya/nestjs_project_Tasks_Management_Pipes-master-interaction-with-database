@@ -16,9 +16,9 @@ import { TaskStatus } from './task.status.enum';
 import { TasksService } from './tasks.service';
 import { Task } from './task.entity';
 
-@Controller('tasks')    //  to create a basic controller, we use classes and decorators ** localhost:3000/tasks
+@Controller('tasks')    
 export class TasksController {
-  constructor(private tasksService: TasksService) {}      //object of service 
+  constructor(private tasksService: TasksService) {}      
 
 @Get()  
 getTasks( @Query() filterDto: GetTasksFilterDto): Promise<Task[]> {
@@ -31,7 +31,7 @@ getTaskById(@Param('id') id: string): Promise<Task> {
 }
 
 @Post()
-  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {    //@Body() handler that contain the param defined in body of postmen or insomnia 
+  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {    
     return this.tasksService.createTask(createTaskDto);
   }
   
@@ -40,38 +40,13 @@ getTaskById(@Param('id') id: string): Promise<Task> {
     return this.tasksService.deleteTask(id);
   }
 
-  @Patch('/:id/status')                // pass the id and status 
+  @Patch('/:id/status')                
   updateTaskStatus(
-    @Param('id') id: string,               // status in body 
+    @Param('id') id: string,               
     @Body () UpdateTaskStatusDto: UpdateTaskStatusDto ,
   ): Promise<Task> {
     const { status} = UpdateTaskStatusDto ;
     return this.tasksService.updateTaskStatus(id, status);
   }
 
-
-
-
-
-
-
-
-  //@
-  /*getTasks(): Task[] {
-    return this.tasksService.getAllTasks();
-  }
-  // http://localhost:3000/tasks/1b29cae5-ae3e-4ccd-b952-96aaa2a75b59
-
-  
-
-  
-
-  @Patch('/:id/status')                // pass the id and status 
-  updateTaskStatus(
-    @Param('id') id: string,               // status in body 
-    @Body () UpdateTaskStatusDto: UpdateTaskStatusDto ,
-  ): Task {
-    const { status} = UpdateTaskStatusDto ;
-    return this.tasksService.updateTaskStatus(id, status);
-  }*/
 }

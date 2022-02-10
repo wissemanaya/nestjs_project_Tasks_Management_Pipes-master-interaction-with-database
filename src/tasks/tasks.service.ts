@@ -11,11 +11,11 @@ import { Task } from './task.entity';
 export class TasksService {
   //private tasks: Task[] = [];      //no need because we i'm going to store tasks in database
   constructor(
-    @InjectRepository(TasksRepository)
-    private tasksRepository: TasksRepository,
+    @InjectRepository(TasksRepository)                 
+    private tasksRepository: TasksRepository,          // object of repository
   ) {}
 getTasks(filterDto:GetTasksFilterDto): Promise<Task[]>{
-  return this.tasksRepository.getTask (filterDto) ;
+  return this.tasksRepository.getTask (filterDto) ;          
 } 
 
   async getTaskById(id: string): Promise<Task> {
