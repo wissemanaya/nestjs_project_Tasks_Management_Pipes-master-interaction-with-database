@@ -3,21 +3,15 @@
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-A pipe is a class annotated with the @Injectable() decorator. Pipes should implement the PipeTransform interface.
-Pipes have two typical use cases:
 
-transformation: transform input data to the desired form (e.g., from string to integer)
-validation: evaluate input data and if valid, simply pass it through unchanged; otherwise, throw an exception when the data is incorrect
-In both cases, pipes operate on the arguments being processed by a controller route handler. Nest interposes a pipe just before a method is invoked, and the pipe receives the arguments destined for the method and operates on them. Any transformation or validation operation takes place at that time, after which the route handler is invoked with any (potentially) transformed arguments.
 
-Nest comes with a number of built-in pipes that you can use out-of-the-box. You can also build your own custom pipes. In this chapter, we'll introduce the built-in pipes and show how to bind them to route handlers. We'll then examine several custom-built pipes to show how you can build one from scratch..
-******************
-********************
-************************
-this project contain : creat task with empty body (title and description) ***
-                       get task by id don't exist ***
-                       update task by id dont exist or with status not defined in rnul status ***
-                       delete task by id don'exist ***
+
+TypeORM is a TypeScript ORM (object-relational mapper) library that makes it easy to link  TypeScript applications up to a relational database . 
+many orm libraries that allow developers to communicate to the database using their preferred prog language .
+helps for define and manage entities , repositories , columns , relation , logging and so much more 
+
+yarn add typeorm @nestjs/typeorm pg 
+pg : sql server that i use 
 
 ## Installation
 
